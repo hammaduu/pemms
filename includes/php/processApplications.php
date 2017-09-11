@@ -152,19 +152,75 @@
             COMMIT;";
          $approval_entry_query = pg_query($sql_approval_entry);
          if($approval_entry_query){
-             $sql_proponentEntry = "INSERT INTO tbl_proponent(
-            id, owner_name, propo_address, propo_email, propo_cnic, propo_phone,
-            propo_landline, propo_proj_code)
-    VALUES (?, ?, ?, ?, ?, ?,
-            ?, ?);";
+             $sql_proponentEntry = "START TRANSACTION;
+                INSERT INTO tbl_proponent(
+                owner_name, propo_address, propo_email, propo_cnic, propo_phone,
+                propo_landline, propo_proj_code)
+                VALUES ('$ind_propo_name', '$ind_propo_address', '$ind_propo_email', '$ind_propo_cnic', '$ind_propo_phone',
+                '$ind_propo_landline_phone', '$proj_code');
+                COMMIT;";
+             $proponenetEntry_query = pg_query($sql_proponentEntry);
+             if($proponenetEntry_query){
+                 $this->saveConsultantRegistration();
+             }
+             else{
+                 $msg = array("status"=> '0',    "message"=>"Application Submission Rejected, Something went wrong with processing.");
+                 $this->closeConnection();
+                 echo json_encode($msg);
+             }
+         }
+         else{
+             $msg = array("status"=> '0',    "message"=>"Application Submission Rejected, Something went wrong with processing.");
+             $this->closeConnection();
+             echo json_encode($msg);
          }
 
 
+     }
 
-
-
-
-
+     public function saveConsultantRegistration()
+     {
+         $consultant_name = $_REQUEST['consultant_name'];
+         $consultant_email = $_REQUEST['consultant_email'];
+         $consultant_cnic = $_REQUEST['consultant_cnic'];
+         $consultant_address = $_REQUEST['consultant_address'];
+         $consultant_phone = $_REQUEST['consultant_phone'];
+         $consultant_ntn = $_REQUEST['consultant_ntn'];
+         $consultant_pec = $_REQUEST['consultant_pec'];
+         $consultant_username = $_REQUEST['consultant_username'];
+         $consultant_pwd = $_REQUEST['consultant_pwd'];
+         $consultant_cnf_pwd = $_REQUEST['consultant_cnf_pwd'];
+         $this->connectionDB();
+         $sql_user = "START TRANSACTION;
+         INSERT INTO tbl_user(full_name, user_name, password, user_type, user_role)
+            VALUES ('$consultant_name', '$consultant_username', '$consultant_cnf_pwd','Consultant', 'Consultant');
+            COMMIT;";
+         $sql_user_query = pg_query($sql_user);
+         if($sql_user_query){
+             $sql_ConsultantEntry = "START TRANSACTION;
+                 INSERT INTO tbl_consultant(
+                 full_name, consultant_email, consultant_cnic, consultant_address,
+                 consultant_phone, consultant_ntn, consultant_pec, consultant_user_name)
+                 VALUES ('$consultant_name', '$consultant_email', '$consultant_cnic', '$consultant_address',
+                '$consultant_phone', '$consultant_ntn', '$consultant_pec','$consultant_username');
+                COMMIT";
+             $consultantEntry_query = pg_query($sql_ConsultantEntry);
+             if($consultantEntry_query){
+                 $msg = array("status"=> '1',    "message"=>"Application Submitted Sccessfully...");
+                 $this->closeConnection();
+                 echo json_encode($msg);
+             }
+             else{
+                 $msg = array("status"=> '0',    "message"=>"Application Submission Rejected, Something went wrong with processing.");
+                 $this->closeConnection();
+                 echo json_encode($msg);
+             }
+         }
+         else{
+             $msg = array("status"=> '0',    "message"=>"Application Submission Rejected, Something went wrong with processing.");
+             $this->closeConnection();
+             echo json_encode($msg);
+         }
 
      }
  }
@@ -180,6 +236,9 @@ if(isset($_REQUEST['applicationType']))
     }
    else if($applicationType=='approvalApplication'){
        $obj_ProcessApplication->saveApprovalApplication();
+   }
+   else if($applicationType=='consultantRegistration'){
+       $obj_ProcessApplication->saveConsultantRegistration();
    }
 }
 ?>

@@ -42,6 +42,9 @@ function getDistrictsList(dropDownId){
         viewtext = "Select District";
         url='includes/php/DropDownService.php?dropDownOption=industryDistrict';
     }
+    dropdown_option = '#'+dropDownId;
+    viewtext = "Select District";
+    url='includes/php/DropDownService.php?dropDownOption='+dropDownId;
     $.ajax({
         url:url,
         success:fillDistricts
@@ -60,10 +63,10 @@ function getDistrictsList(dropDownId){
     }
 }
 
-function getIndustryType(){
-    dropdown_id = '#ind_type';
+function getIndustryType(industry_type){
+    dropdown_id = '#'+industry_type;
     text = "Select Industry Type";
-    urlIndType='includes/php/DropDownService.php?dropDownOption=indType';
+    urlIndType='includes/php/DropDownService.php?dropDownOption='+industry_type;
     $.ajax({
         url:urlIndType,
         success:fillIndustryType

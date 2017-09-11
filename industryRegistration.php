@@ -3,8 +3,25 @@
  * Created by PhpStorm.
  * User: Adi
  * Date: 9/9/2017
+ * Time: 10:54 AM
+ */
+?>
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Adi
+ * Date: 9/9/2017
+ * Time: 10:50 AM
+ */
+?>
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Adi
+ * Date: 9/9/2017
  * Time: 9:36 AM
  */
+
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +55,8 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">    <!-- TS1387507089: Neon - Responsive Admin Template created by Laborator -->
     <link rel="stylesheet" href="includes/css/labelRadioStyle.css" />
     <style>
-        input[type=text]:focus, input[type=email]:focus, select:focus, input[type=password]:focus{
+        input[type=text]:focus, input[type=email]:focus, select:focus, input[type=password]:focus,
+        #ind_address:focus, #ind_description:focus {
             box-shadow: 0 0 3px rgba(81, 203, 238, 1);
             border: 1px solid rgb(34, 113, 32);
             color: #000;
@@ -91,7 +109,7 @@
                         <a href="labRegistration.php"><span>Lab Registration</span></a>
                     </li>
 
-                    <li>
+                    <li class="active">
                         <a href="industryRegistration.php"><span>Industry Registration</span></a>
                     </li>
 
@@ -99,10 +117,10 @@
                         <a href="approvalApplication.php"><span>Approval Application Form</span></a>
                     </li>
 
-                    <li class="opened active">
+                    <li>
                         <a href="consultantRegistration.php"><span>Consultant Registration</span></a>
                         <ul>
-                            <li class="active">
+                            <li>
                                 <a href="individualConsultantReg.php">Individual Consultant Registration</a>
                             </li>
                             <li>
@@ -134,58 +152,86 @@
         </div>
 
         <hr />
+
         <div class="col-lg-12">
-            <form class="registrationForm" id="consultant_reg_form" style="color: blueviolet; font-family: sans-serif; font-weight: bold;">
+            <form class="registrationForm" id="ind_reg_form" style="color: blueviolet; font-family: sans-serif; font-weight: bold;">
                 <div class="col-lg-12" style="text-align: center;">
-                    <h3 style="color: blue; font-family: initial; font-style: italic; font-weight: bold;">Consultant Registration Form</h3>
+                    <h3 style="color: blue; font-family: initial; font-style: italic; font-weight: bold;">Industry Registration</h3>
                 </div>
                 <div class="form-group">
-                    <label for="consultant_name">Full Name:</label>
-                    <input type="text" class="form-control" id="consultant_name" name="consultant_name" placeholder="Enter Consultant Name">
+                    <label for="ind_name">Industry Name:</label>
+                    <input type="text" class="form-control" id="ind_name" name="ind_name" placeholder="Enter Industry Name">
                 </div>
                 <div class="form-group">
-                    <label for="consultant_email">Email:</label>
-                    <input type="email" class="form-control" id="consultant_email" name="consultant_email" placeholder="Enter Consultant Email">
+                    <label for="ind_description">Industry Description:</label>
+                    <textarea class="form-control" rows="5" id="ind_description" name="ind_description" placeholder="Industry Description"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="consultant_cnic">CNIC:</label>
-                    <input type="text" class="form-control" id="consultant_cnic" name="consultant_cnic" placeholder="Enter CNIC">
+                    <label for="ind_type">Select Industry Type:</label>
+                    <select id="ind_type" name="ind_type" class="form-control">
+                        <option value="%">Select Industry Type</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="consultant_address">Address:</label>
-                    <input type="text" class="form-control" id="consultant_address" name="consultant_address" placeholder="Enter Consultant Address">
+                    <label for="ind_district">Select District:</label>
+                    <select id="ind_district" name="ind_district" class="form-control">
+                        <option value="%">Select District</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="consultant_phone">Phone:</label>
-                    <input type="text" class="form-control" id="consultant_phone" name="consultant_phone" placeholder="Enter Phone Number">
+                    <label for="ind_address">Address:</label>
+                    <textarea class="form-control" rows="5" id="ind_address" name="ind_address" placeholder="Enter Address"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="consultant_ntn">NTN:</label>
-                    <input type="text" class="form-control" id="consultant_ntn" name="consultant_ntn" placeholder="Enter NTN Number">
-                </div><div class="form-group">
-                    <label for="consultant_pec">PEC:</label>
-                    <input type="text" class="form-control" id="consultant_pec" name="consultant_pec" placeholder="Enter PEC">
+                    <label for="ind_phone">Phone:</label>
+                    <input type="text" class="form-control" id="ind_phone" name="ind_phone" placeholder="Enter Phone Number">
+                </div>
+                <hr style="border: dashed 1px green;"/>
+                <h4 style="color: blue;">Contact Person Detail</h4>
+                <div class="form-group">
+                    <label for="ind_main_cp_name">Full Name:</label>
+                    <input type="text" class="form-control" id="ind_main_cp_name" name="ind_main_cp_name" placeholder="Enter Contact Person Name">
                 </div>
                 <div class="form-group">
-                    <label for="consultant_username">User Name:</label>
-                    <input type="text" class="form-control" id="consultant_username" name="consultant_username" placeholder="Set User Name">
+                    <label for="ind_main_cp_email">Email:</label>
+                    <input type="text" class="form-control" id="ind_main_cp_email" name="ind_main_cp_email" placeholder="Enter Contact Person Email">
                 </div>
                 <div class="form-group">
-                    <label for="consultant_pwd">Password:</label>
-                    <input type="password" class="form-control" id="consultant_pwd" name="consultant_pwd" placeholder="Enter Password">
+                    <label for="ind_main_cp_designation">Designation:</label>
+                    <input type="text" class="form-control" id="ind_main_cp_designation" name="ind_main_cp_designation" placeholder="Enter Designation">
                 </div>
                 <div class="form-group">
-                    <label for="consultant_cnf_pwd">Confirm Password:</label>
-                    <input type="password" class="form-control" id="consultant_cnf_pwd" name="consultant_cnf_pwd" placeholder="Confirm Password"
-                           onchange="confirmPassword('consultant_cnf_pwd','consultant_cnf_pwd','password_mismatch_consultant_new')">
+                    <label for="ind_main_cp_cnic">CNIC:</label>
+                    <input type="text" class="form-control" id="ind_main_cp_cnic" name="ind_main_cp_cnic" placeholder="Enter CNIC">
+                </div>
+                <div class="form-group">
+                    <label for="ind_cp_address">Address:</label>
+                    <input type="text" class="form-control" id="ind_cp_address" name="ind_cp_address" placeholder="Enter Contact Person Address">
+                </div>
+                <div class="form-group">
+                    <label for="ind_cp_phone">Phone:</label>
+                    <input type="text" class="form-control" id="ind_cp_phone" name="ind_cp_phone" placeholder="Enter Phone Number">
+                </div>
+                <div class="form-group">
+                    <label for="ind_username">User Name:</label>
+                    <input type="text" class="form-control" id="ind_username" name="ind_username" placeholder="Set User Name">
+                </div>
+                <div class="form-group">
+                    <label for="ind_password">Password:</label>
+                    <input type="password" class="form-control" id="ind_password" name="ind_password" placeholder="Set Password">
+                </div>
+                <div class="form-group">
+                    <label for="ind_cnf_password">Confirm Password:</label>
+                    <input type="password" class="form-control" id="ind_cnf_password" name="ind_cnf_password" placeholder="Confirm Password"
+                           onchange="confirmPassword('ind_password','ind_cnf_password','password_mismatch_ind_new')">
                 </div>
                 <div style="height: auto;text-align: left;margin-left: 10px;margin-top: -10px;">
-                    <h5 id="password_mismatch_consultant_new" style="color: red"></h5>
+                    <h5 id="password_mismatch_ind_new" style="color: red"></h5>
                 </div>
-                <button type="submit" id="consultant_registration" class="btn btn-success pull-right">Register</button>
+                <button type="submit" id="ind_reg_approval_application" class="btn btn-success pull-right">Register</button>
             </form>
         </div>
-    </div>
+   </div>
     <!-- Error Message Modal -->
     <div id="alert_modal" class="modal fade">
         <div class="modal-dialog" style="margin-top:10%;margin-left:30%;width:40%;height: 75%">
@@ -202,8 +248,6 @@
         </div>
     </div>
 </div>
-
-
 
     <script src="includes/assets/js/gsap/main-gsap.js" id="script-resource-1"></script>
     <script src="includes/assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js" id="script-resource-2"></script>
@@ -227,9 +271,12 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+        $(document).ready(function(){
+            getIndustryType('ind_type');
+            getDistrictsList('ind_district');
+        });
 
     </script>
-
     <script src="includes/lib/bootbox.min.js"></script>
     <script src="includes/js/pemmsScript.js"></script>
     <script src="includes/js/dropDownScript.js"></script>

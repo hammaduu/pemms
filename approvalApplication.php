@@ -235,7 +235,7 @@
                 <div class="col-lg-12">
                     <div class="btn-group btn-group-inline" data-toggle="buttons">
                         <label class="btn">
-                            <input type="radio" name='consultant_options' value="existing_consultant">
+                            <input type="radio" name='consultant_options' value="existing_consultant" checked>
                             <i class="fa fa-circle-o fa-2x"></i>
                             <i class="fa fa-dot-circle-o fa-2x"></i>
                             <span style="color: blueviolet;">Choose from Existing Consultants</span>
@@ -248,7 +248,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="form-group" id="consultant_selection" style="display: none;">
+                <div class="form-group" id="consultant_selection" style="">
                     <label for="ind_proj_consultant">Select Consultant:</label>
                     <select id="ind_proj_consultant" name="ind_proj_consultant" class="form-control">
                         <option value="%">Select Consultant</option>
@@ -257,166 +257,71 @@
                 <div id="ind_consultant_details" style="display: none;">
                     <h4 style="color: blue;">Consultant Details</h4>
                     <div class="form-group">
-                        <label for="ind_consultant_name">Full Name:</label>
-                        <input type="text" class="form-control" id="ind_consultant_name" name="ind_consultant_name" placeholder="Enter Consultant Name">
+                        <label for="consultant_name">Full Name:</label>
+                        <input type="text" class="form-control" id="consultant_name" name="consultant_name" placeholder="Enter Consultant Name">
                     </div>
                     <div class="form-group">
-                        <label for="ind_consultant_email">Email:</label>
-                        <input type="email" class="form-control" id="ind_consultant_email" name="ind_consultant_email" placeholder="Enter Consultant Email">
+                        <label for="consultant_email">Email:</label>
+                        <input type="email" class="form-control" id="consultant_email" name="consultant_email" placeholder="Enter Consultant Email">
                     </div>
                     <div class="form-group">
-                        <label for="ind_consultant_cnic">CNIC:</label>
-                        <input type="text" class="form-control" id="ind_consultant_cnic" name="ind_consultant_cnic" placeholder="Enter CNIC">
+                        <label for="consultant_cnic">CNIC:</label>
+                        <input type="text" class="form-control" id="consultant_cnic" name="consultant_cnic" placeholder="Enter CNIC">
                     </div>
                     <div class="form-group">
-                        <label for="ind_consultant_address">Address:</label>
-                        <input type="text" class="form-control" id="ind_consultant_address" name="ind_consultant_address" placeholder="Enter Consultant Address">
+                        <label for="consultant_address">Address:</label>
+                        <input type="text" class="form-control" id="consultant_address" name="consultant_address" placeholder="Enter Consultant Address">
                     </div>
                     <div class="form-group">
-                        <label for="ind_consultant_phone">Phone:</label>
-                        <input type="text" class="form-control" id="ind_consultant_phone" name="ind_consultant_phone" placeholder="Enter Phone Number">
+                        <label for="consultant_phone">Phone:</label>
+                        <input type="text" class="form-control" id="consultant_phone" name="consultant_phone" placeholder="Enter Phone Number">
                     </div>
                     <div class="form-group">
-                        <label for="ind_consultant_ntn">NTN:</label>
-                        <input type="text" class="form-control" id="ind_consultant_ntn" name="ind_consultant_ntn" placeholder="Enter NTN Number">
+                        <label for="consultant_ntn">NTN:</label>
+                        <input type="text" class="form-control" id="consultant_ntn" name="consultant_ntn" placeholder="Enter NTN Number">
                     </div><div class="form-group">
                         <label for="consultant_pec">PEC:</label>
-                        <input type="text" class="form-control" id="ind_consultant_pec" name="ind_consultant_pec" placeholder="Enter PEC">
-                    </div>
-					<div class="form-group">
-                      <label for="consultant_username">User Name:</label>
-                      <input type="text" class="form-control" id="consultant_username" name="consultant_username" placeholder="Set User Name">
+                        <input type="text" class="form-control" id="consultant_pec" name="consultant_pec" placeholder="Enter PEC">
                     </div>
                     <div class="form-group">
-                        <label for="ind_consultant_pwd">Password:</label>
-                        <input type="password" class="form-control" id="ind_consultant_pwd" name="ind_consultant_pwd" placeholder="Enter Password">
+                        <label for="consultant_username">User Name:</label>
+                        <input type="text" class="form-control" id="consultant_username" name="consultant_username" placeholder="Set User Name">
                     </div>
                     <div class="form-group">
-                        <label for="ind_consultant_cnf_pwd">Confirm Password:</label>
-                        <input type="password" class="form-control" id="ind_consultant_cnf_pwd" name="ind_consultant_cnf_pwd" placeholder="Confirm Password" onchange="confirmPassword('ind_password','ind_cnf_password','password_mismatch_ind_new')">
+                        <label for="consultant_pwd">Password:</label>
+                        <input type="password" class="form-control" id="consultant_pwd" name="consultant_pwd" placeholder="Enter Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="consultant_cnf_pwd">Confirm Password:</label>
+                        <input type="password" class="form-control" id="consultant_cnf_pwd" name="consultant_cnf_pwd" placeholder="Confirm Password"
+                               onchange="confirmPassword('consultant_cnf_pwd','consultant_cnf_pwd','password_mismatch_consultant_new')">
                     </div>
                     <div style="height: auto;text-align: left;margin-left: 10px;margin-top: -10px;">
-                        <h5 id="password_mismatch_ind_new" style="color: red"></h5>
+                        <h5 id="password_mismatch_consultant_new" style="color: red"></h5>
                     </div>
                 </div>
 
                 <button type="submit" id="ind_reg_approval_application" class="btn btn-success pull-right">Register</button>
             </form>
         </div>
+    </div>
 
-
-        <div id="chat" class="fixed" data-current-user="Art Ramadani" data-order-by-status="1" data-max-chat-history="25">
-
-            <div class="chat-inner">
-
-
-                <h2 class="chat-header">
-                    <a href="#" class="chat-close" data-animate="1"><i class="entypo-cancel"></i></a>
-
-                    <i class="entypo-users"></i>
-                    Chat
-                    <span class="badge badge-success is-hidden">0</span>
-                </h2>
-
-
-                <div class="chat-group" id="group-1">
-                    <strong>Favorites</strong>
-
-                    <a href="#" id="sample-user-123" data-conversation-history="#sample_history"><span class="user-status is-online"></span> <em>Catherine J. Watkins</em></a>
-                    <a href="#"><span class="user-status is-online"></span> <em>Nicholas R. Walker</em></a>
-                    <a href="#"><span class="user-status is-busy"></span> <em>Susan J. Best</em></a>
-                    <a href="#"><span class="user-status is-offline"></span> <em>Brandon S. Young</em></a>
-                    <a href="#"><span class="user-status is-idle"></span> <em>Fernando G. Olson</em></a>
+    <!-- Error Message Modal -->
+    <div id="alert_modal" class="modal fade">
+        <div class="modal-dialog" style="margin-top:10%;margin-left:30%;width:40%;height: 75%">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 5px;color:white;text-align: center;background-color: rgba(54, 117, 137, 0.94)">
+                    <b id="modalTitle" style="font-size: 14px">User Guide</b>
                 </div>
-
-
-                <div class="chat-group" id="group-2">
-                    <strong>Work</strong>
-
-                    <a href="#"><span class="user-status is-offline"></span> <em>Robert J. Garcia</em></a>
-                    <a href="#" data-conversation-history="#sample_history_2"><span class="user-status is-offline"></span> <em>Daniel A. Pena</em></a>
-                    <a href="#"><span class="user-status is-busy"></span> <em>Rodrigo E. Lozano</em></a>
+                <!-- dialog body -->
+                <div id="modelBody" class="modal-body">
                 </div>
-
-
-                <div class="chat-group" id="group-3">
-                    <strong>Social</strong>
-
-                    <a href="#"><span class="user-status is-busy"></span> <em>Velma G. Pearson</em></a>
-                    <a href="#"><span class="user-status is-offline"></span> <em>Margaret R. Dedmon</em></a>
-                    <a href="#"><span class="user-status is-online"></span> <em>Kathleen M. Canales</em></a>
-                    <a href="#"><span class="user-status is-offline"></span> <em>Tracy J. Rodriguez</em></a>
-                </div>
-
+                <!-- dialog buttons -->
+                <div class="modal-footer" style="padding: 2px;"><button type="button" class="btn btn-primary"  data-dismiss="modal">OK</button></div>
             </div>
-
-            <!-- conversation template -->
-            <div class="chat-conversation">
-
-                <div class="conversation-header">
-                    <a href="#" class="conversation-close"><i class="entypo-cancel"></i></a>
-
-                    <span class="user-status"></span>
-                    <span class="display-name"></span>
-                    <small></small>
-                </div>
-
-                <ul class="conversation-body">
-                </ul>
-
-                <div class="chat-textarea">
-                    <textarea class="form-control autogrow" placeholder="Type your message"></textarea>
-                </div>
-
-            </div>
-
         </div>
-
-
-        <!-- Chat Histories -->
-        <ul class="chat-history" id="sample_history">
-            <li>
-                <span class="user">Art Ramadani</span>
-                <p>Are you here?</p>
-                <span class="time">09:00</span>
-            </li>
-
-            <li class="opponent">
-                <span class="user">Catherine J. Watkins</span>
-                <p>This message is pre-queued.</p>
-                <span class="time">09:25</span>
-            </li>
-
-            <li class="opponent">
-                <span class="user">Catherine J. Watkins</span>
-                <p>Whohoo!</p>
-                <span class="time">09:26</span>
-            </li>
-
-            <li class="opponent unread">
-                <span class="user">Catherine J. Watkins</span>
-                <p>Do you like it?</p>
-                <span class="time">09:27</span>
-            </li>
-        </ul>
-
-
-
-
-        <!-- Chat Histories -->
-        <ul class="chat-history" id="sample_history_2">
-            <li class="opponent unread">
-                <span class="user">Daniel A. Pena</span>
-                <p>I am going out.</p>
-                <span class="time">08:21</span>
-            </li>
-
-            <li class="opponent unread">
-                <span class="user">Daniel A. Pena</span>
-                <p>Call me when you see this message.</p>
-                <span class="time">08:27</span>
-            </li>
-        </ul></div>
+    </div>
+</div>
 
 
 
@@ -443,6 +348,10 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+        $(document).ready(function(){
+            getIndustryType('ind_proj_ind_type');
+            getDistrictsList('ind_proj_district');
+        });
 
     </script>
 

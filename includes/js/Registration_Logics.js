@@ -19,6 +19,20 @@ $("form.registrationForm").submit(function(event){
         url = "includes/php/processApplications.php?applicationType=newIndustryRegistration";
         isFormValid = validate_IndustryRegistrationForm();
     }
+    else if(formId == 'ind_approval_form')
+    {
+        url = "includes/php/processApplications.php?applicationType=approvalApplication";
+        isFormValid = validate_ApprovalApplicationForm();
+    }
+    else if(formId == 'consultant_reg_form')
+    {
+        url = "includes/php/processApplications.php?applicationType=consultantRegistration";
+        isFormValid = validate_ConsultatnRegistrationForm();
+    }
+    else if(formId == 'consultant_firm_reg_form'){
+        url = "includes/php/processApplications.php?applicationType=consultancyFirm";
+        isFormValid = validate_FirmRegistrationForm();
+    }
     if(isFormValid){
         bootbox.confirm({
             message: "Are you sure to submit this application",

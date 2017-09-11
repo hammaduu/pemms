@@ -51,10 +51,10 @@ if(isset($_REQUEST['dropDownOption']))
     else if($dropDownOption=='labPurpose'){
         echo $obj_DropDownService->getLabPurpose();
     }
-    else if($dropDownOption=='industryDistrict'){
+    else if($dropDownOption=='ind_district' || $dropDownOption=='ind_proj_district'){
         echo $obj_DropDownService->getDistrictList();
     }
-    else if($dropDownOption=='indType'){
+    else if($dropDownOption=='ind_type' || $dropDownOption=='ind_proj_ind_type'){
         echo $obj_DropDownService->getIndustryTypeList();
     }
 }
