@@ -1,0 +1,14 @@
+/*  CUSTOM CSS */
+
+@media (min-width : 1200px){
+    .form_panel{
+        height: 500px;
+        padding: 10% 10% 10% 30%;
+    }
+}
+#log_in_form{
+    padding: 10%;
+    background-color: #428bca;
+    color: white;
+    border-radius: 10px;
+}
